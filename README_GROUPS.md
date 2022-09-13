@@ -24,7 +24,7 @@ If you switch to another group, send a pull request to this file that indicates 
 * Group 16: hcan, vist, bjhh
 * Group 17: nihp, ojoh, mreh
 * Group 18: nsel, paab, oska
-* Group 19: ksig, pekp, tbru
+* Group 19: hast, pekp, tbru
 * Group 20: tuho, phimo, rogy
 * Group 21: ivil, asgm, frjo
 * Group 22: bath, ehel, jakst
@@ -47,7 +47,7 @@ If you switch to another group, send a pull request to this file that indicates 
 * Group 39: tbav, nlje, gues
 * Group 40: tcla, siol, siar
 * Group 41: sibh, crco, kmey
-* Group 42: stmp, hast, tael
+* Group 42: stmp, tael
 * Group 43: emtj, jklo, mwha
 * Group 44: monha, ssbo, timj
 * Group 45: labp, jric, laku
