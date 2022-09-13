@@ -30,7 +30,7 @@ If you switch to another group, send a pull request to this file that indicates 
 * Group 22: bath, ehel, jakst
 * Group 23: reer, aarv, lanr
 * Group 24: luha, base, chbl
-* Group 25: avia, remy, selb
+* Group 25: avia, behv, selb 
 * Group 26: kbej, dlha, elbr
 * Group 27: raoo, annro, aegr
 * Group 28: diol, kays, emno
@@ -43,7 +43,7 @@ If you switch to another group, send a pull request to this file that indicates 
 //* Group 35: shad, brat, millh
 * Group 36: asjo, aldy, skas
 * Group 37: aing, memr, phla
-* Group 38: behv, tokj, jsev
+* Group 38: tokj, jsev
 * Group 39: tbav, nlje, gues
 * Group 40: tcla, siol, siar
 * Group 41: sibh, crco, kmey
