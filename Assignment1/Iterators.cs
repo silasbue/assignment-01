@@ -13,5 +13,18 @@ public static class Iterators
   }
 
   public static IEnumerable<T> Filter<T>(IEnumerable<T> items, Predicate<T> predicate)
-    => throw new NotImplementedException();
+  {
+    var output = new List<T>();
+
+    foreach (var item in items)
+    {
+      var predicateResult = predicate(item);
+      if (predicateResult)
+      {
+        output.Add(item);
+      }
+    }
+
+    return output;
+  }
 }
