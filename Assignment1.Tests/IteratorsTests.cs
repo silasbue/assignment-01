@@ -38,4 +38,17 @@ public class IteratorsTests
 
     result.Should().BeEquivalentTo(new List<int> { 2, 3, 4 });
   }
+
+  [Fact]
+  public void Filter_given_List_3_4_2_5_returns_List_2_4()
+  {
+    Predicate<int> even = Even;
+    bool Even(int i) => i % 2 == 0;
+
+    var list = new List<int> { 3, 4, 2, 5 };
+
+    var result = Iterators.Filter<int>(list, even);
+
+    result.Should().BeEquivalentTo(new List<int> { 2, 4 });
+  }
 }
