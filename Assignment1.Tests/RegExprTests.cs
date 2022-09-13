@@ -12,6 +12,7 @@ public class RegExprTests
     result.Should().BeEquivalentTo(new List<string> { "This", "is", "the", "best", "string", "you", "will", "see", "tselkjt", "sdf" });
   }
 
+
   [Fact]
   public void reusolutions_given__returns_()
   {
