@@ -22,4 +22,34 @@ public class RegExprTests
 
     result.Should().BeEquivalentTo(new List<(int, int)> { (1920, 1080), (1024, 780), (987, 650) });
   }
+
+  [Fact]
+  public void Urls_given_html_with_url_and_title_returns_url_and_title()
+  {
+    var input = "<a href=\"https://en.wikipedia.org/wiki/Formal_language\" title=\"Formal language\">formal language</a>";
+
+    var result = RegExpr.Urls(input);
+
+    result.Should().BeEquivalentTo(new List<(Uri, string)> { (new Uri("https://en.wikipedia.org/wiki/Formal_language"), "Formal language") });
+  }
+
+  [Fact]
+  public void Urls_given_html_with_url_returns_url_and_innerText()
+  {
+    var input = "<a href=\"https://en.wikipedia.org/wiki/Formal_language\">formal language</a>";
+
+    var result = RegExpr.Urls(input);
+
+    result.Should().BeEquivalentTo(new List<(Uri, string)> { (new Uri("https://en.wikipedia.org/wiki/Formal_language"), "formal language") });
+  }
+
+  [Fact]
+  public void Urls_given_html_with_multiple_urls_returns_all_urls_and_title_or_innerText()
+  {
+    var input = "<a href=\"https://en.wikipedia.org/wiki/Formal_language\">formal language</a> <a href=\"https://en.wikipedia.org/wiki/Formal_language\" title=\"Formal language\">formal language</a>";
+
+    var result = RegExpr.Urls(input);
+
+    result.Should().BeEquivalentTo(new List<(Uri, string)> { (new Uri("https://en.wikipedia.org/wiki/Formal_language"), "formal language"), (new Uri("https://en.wikipedia.org/wiki/Formal_language"), "Formal language") });
+  }
 }
