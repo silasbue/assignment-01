@@ -42,7 +42,7 @@ If you switch to another group, send a pull request to this file that indicates 
 * Group 34: aguh, erja, mgan
 //* Group 35: shad, brat, millh
 * Group 36: asjo, aldy, skas
-* Group 37: aing, memr, phla
+* Group 37: aing, memr
 * Group 38: tokj, jsev
 * Group 39: tbav, nlje, gues
 * Group 40: tcla, siol, siar
@@ -53,4 +53,5 @@ If you switch to another group, send a pull request to this file that indicates 
 * Group 45: labp, jric, laku
 * Group 46: amdh, frai, weny
 * Group 47: Emno, frhc, bhag
-* Group 48: unla, asly, mbjn
+* Group 48: asly, mbjn
+* Group 49: phla, unla
