@@ -29,22 +29,23 @@ public static class RegExpr
     {
       var width = m.Groups["width"].Value;
       var height = m.Groups["height"].Value;
-      
       yield return (Int32.Parse(width), Int32.Parse(height));
     }
   }
 
   public static IEnumerable<string> InnerText(string html, string tag)
   {
-    var pattern = $@"<{tag}.*?>(?<text>.*?)</{tag}>";
+    var tagsToRemove = $"(?!</?{tag}.*?>)</?[\\w =\"]+>";
+    var htmlWithoutTags = Regex.Replace(html, tagsToRemove, "");
+
+    var pattern = $@"<({tag}).*?>(?<text>.*?)</\1>";
     var myRegex = new Regex(pattern);
 
     var output = new List<String>();
 
-    foreach (Match m in myRegex.Matches(html))
+    foreach (Match m in myRegex.Matches(htmlWithoutTags))
     {
       var text = m.Groups["text"].Value;
-
       yield return text;
     }
   }
