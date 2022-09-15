@@ -12,15 +12,55 @@ public class RegExprTests
     result.Should().BeEquivalentTo(new List<string> { "This", "is", "the", "best", "string", "you", "will", "see", "tselkjt", "sdf" });
   }
 
+  [Fact]
+    public void splitLine_given_empty_list_returns_null()
+  {
+    var list = new List<string> { "" };
+
+    var result = RegExpr.SplitLine(list);
+
+    result.Should().BeEquivalentTo(new List<string> {  });
+  }
+
 
   [Fact]
-  public void reusolutions_given__returns_()
+  public void resolutions_given__returns_()
   {
     var input = "1920x1080, 1024x780-987x650";
 
     var result = RegExpr.Resolution(input);
 
     result.Should().BeEquivalentTo(new List<(int, int)> { (1920, 1080), (1024, 780), (987, 650) });
+  }
+
+    [Fact]
+  public void resolutions_given__null__returns_null()
+  {
+    var input = "";
+
+    var result = RegExpr.Resolution(input);
+
+    result.Should().BeEquivalentTo(new List<(int, int)> { });
+  }
+
+  [Fact]
+    public void resolutions_given__other_numbers__returns_resolution()
+  {
+    var input = "vi skal have et 1920x1080 for 500 kroner, men også 1024x780 til 300 kroner";
+
+    var result = RegExpr.Resolution(input);
+
+    result.Should().BeEquivalentTo(new List<(int, int)> { (1920, 1080), (1024, 780) });
+  }
+
+    [Fact]
+  public void HTML_given_HTML_Return_inner_text()
+  {
+    var HTMLinput = "<div<p>A <b>regular expression</b>, <b>regex</b> or <b>regexp</b> (sometimes called a <b>rational expression</b>) is, in <a href=\"https://en.wikipedia.org/wiki/Theoretical_computer_science\" title=\"Theoretical computer science\">theoretical computer science</a> and <a href=\"https://en.wikipedia.org/wiki/Formal_language\" title=\"Formal language\">formal language</a> theory, a sequence of <a href=\"https://en.wikipedia.org/wiki/Character_(computing)\" title=\"Character (computing)\">characters</a> that define a <i>search <a href=\"https://en.wikipedia.org/wiki/Pattern_matching\" title=\"Pattern matching\">pattern</a></i>. Usually this pattern is then used by <a href=\"https://en.wikipedia.org/wiki/String_searching_algorithm\" title=\"String searching algorithm\">string searching algorithms</a> for \"find\" or \"find and replace\" operations on <a href=\"https://en.wikipedia.org/wiki/String_(computer_science)\" title=\"String (computer science)\">strings</a>.</p></div>";
+    var tag = "a";
+    var result = RegExpr.InnerText(HTMLinput,tag);
+
+    result.Should().BeEquivalentTo(new List<String>{"theoretical computer science", "formal language", "characters", "pattern", "string searching algorithms", "strings"});
   }
 
   [Fact]
