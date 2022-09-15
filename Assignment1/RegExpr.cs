@@ -14,10 +14,8 @@ public static class RegExpr
 
     foreach (Match m in myRegex.Matches(combinedString))
     {
-      ans.Add(m.ToString());
+      yield return m.ToString();
     }
-
-    return ans;
   }
 
   public static IEnumerable<(int width, int height)> Resolution(string resolutions)
@@ -31,10 +29,9 @@ public static class RegExpr
     {
       var width = m.Groups["width"].Value;
       var height = m.Groups["height"].Value;
-      output.Add((Int32.Parse(width), Int32.Parse(height)));
+      
+      yield return (Int32.Parse(width), Int32.Parse(height));
     }
-
-    return output;
   }
 
   public static IEnumerable<string> InnerText(string html, string tag)
@@ -47,10 +44,9 @@ public static class RegExpr
     foreach (Match m in myRegex.Matches(html))
     {
       var text = m.Groups["text"].Value;
-      output.Add(text);
-    }
 
-    return output;
+      yield return text;
+    }
   }
 
   public static IEnumerable<(Uri url, string title)> Urls(string html)

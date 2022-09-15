@@ -6,10 +6,13 @@ public static class Iterators
   {
     var output = new List<T>();
 
-    foreach (var item in items)
-      output.AddRange(item);
-
-    return output;
+    foreach (var list in items)
+    {
+      foreach (var item in list)
+      {
+        yield return item;
+      }
+    }
   }
 
   public static IEnumerable<T> Filter<T>(IEnumerable<T> items, Predicate<T> predicate)
@@ -21,10 +24,8 @@ public static class Iterators
       var predicateResult = predicate(item);
       if (predicateResult)
       {
-        output.Add(item);
+        yield return item;
       }
     }
-
-    return output;
   }
 }
