@@ -29,6 +29,7 @@ public static class RegExpr
     {
       var width = m.Groups["width"].Value;
       var height = m.Groups["height"].Value;
+      
       yield return (Int32.Parse(width), Int32.Parse(height));
     }
   }
@@ -43,6 +44,7 @@ public static class RegExpr
     foreach (Match m in myRegex.Matches(html))
     {
       var text = m.Groups["text"].Value;
+
       yield return text;
     }
   }
